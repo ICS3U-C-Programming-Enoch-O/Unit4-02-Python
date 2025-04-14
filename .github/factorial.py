@@ -4,27 +4,29 @@
 # This program will calculate the sum of the numbers the user inputs using loop.
 
 
-def main():
-    # initializations
-    loop_counter = 0
-    factorial_answer = 1
+def factorial_program():
+    # Get user number
 
-    # get the user number
-    user_number = int(input("Enter a positive number: "))
-    print("")
-
-    # replicates a do..while loop
-    # calculate the factorial of the user number using a loop
     while True:
-        loop_counter = loop_counter + 1
-        factorial_answer = factorial_answer * loop_counter
-        print("Tracking {} times through loop.".format(loop_counter))
-        if loop_counter >= user_number:
+        try:
+            user_number = input("Enter a whole number positive number: ")
+            number = int(user_number)
+            if number < 0:
+                print("Please enter a positive number.")
+                continue
             break
+        except ValueError:
+            print("Invalid number, Please enter a whole number.")
 
-    print("")
-    print("{}! = {}".format(user_number, factorial_answer))
+    factorial = 1
+    i = 1
+    while i <= number:
+        factorial *= i
+        i += 1
+
+    print(f"The factorial of {number} is {factorial}")
 
 
 if __name__ == "__main__":
-    main()
+    factorial_program()
+
